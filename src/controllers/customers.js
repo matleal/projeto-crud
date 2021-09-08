@@ -84,8 +84,9 @@ async function remove(req, res) {
     
     const remove = await CustomersModel.deleteOne({ _id: id });
 
-    
-    res.redirect('/list');
+    if(remove.deletedCount){
+        res.redirect('/list');
+    }
     
 }
 
